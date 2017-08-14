@@ -1,0 +1,29 @@
+#format is target-name: target dependencies
+#{-tab-}actions
+
+# All Targets
+all: task2b
+
+# Tool invocations
+# Executable "task0" depends on the files numbers.o and task2b.o.
+task2b:  task2b.o util.o start.o
+	ld -g -melf_i386 start.o task2b.o util.o -o task2b
+
+# Depends on the source and header files
+start.o: start.s
+	nasm -g -f elf start.s -o start.o
+
+util.o: util.c
+	gcc -g -m32 -Wall -ansi -c -nostdlib -fno-stack-protector util.c -o util.o
+	
+
+task2b.o: task2b.c
+	gcc -g -m32 -Wall -ansi -c -nostdlib -fno-stack-protector task2b.c -o task2b.o
+ 
+
+#tell make that "clean" is not a file name!
+.PHONY: clean
+
+#Clean the build directory
+clean: 
+	rm -f *.o task2b

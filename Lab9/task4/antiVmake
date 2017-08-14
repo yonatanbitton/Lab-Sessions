@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS= -Wall -ansi -g
+
+all: antiVirus
+antiVirus: antiVirus.o
+antiVirus.o: antiVirus.c
+
+.PHONY: clean
+
+clean: 
+	rm -f antiVirus antiVirus.o

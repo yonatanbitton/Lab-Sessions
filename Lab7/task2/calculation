@@ -1,0 +1,2 @@
+2e0         + 08048388     - 080482e0 		=388h =904d
+text offset + main address - section address 

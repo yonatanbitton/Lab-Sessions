@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS=-Wall -g -ansi
+
+all: hexeditplus
+hexeditplus: hexeditplus.o
+hexeditplus.o: hexeditplus.c
+
+.PHONY: clean
+
+clean: 
+	rm -f hexeditplus hexeditplus.o

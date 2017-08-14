@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS=-Wall -m32 -g -ansi
+
+all: myCounter
+myCounter: myCounter.o
+myCounter.o: myCounter.c
+
+.PHONY: clean
+
+clean: 
+	rm -f myCounter myCounter.o

@@ -1,0 +1,20 @@
+#format is target-name: target dependencies
+#{-tab-}actions
+
+# All Targets
+all: start
+
+# Tool invocations
+# Executable "start_ass0" depends on the files start_ass0.o and start_ass0.o.
+start: start.o 
+	gcc -g -m32 -Wall -o start start.o
+
+start.o: start.s
+	nasm -g -f elf32 -w+all -o start.o start.s
+
+#tell make that "clean" is not a file name!
+.PHONY: clean
+
+#Clean the build directory
+clean: 
+	rm -f *.o hello
